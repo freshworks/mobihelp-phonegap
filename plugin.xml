@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns           =   "http://www.phonegap.com/ns/plugins/1.0" 
+        id              =   "cordova-plugin-freshdesk-mobihelp" 
+        version         =   "1.0">
+
+
+
+    <!-- Meta -->
+    <name>Mobihelp Plugin for Phonegap</name>
+    <description>Plugin for integrating Freshdesk's SDK (Mobihelp) into a Phonegap/Cordova project</description>
+    <keywords>freshdesk,mobihelp</keywords>
+
+    
+
+    <engines>
+      <engine name="cordova-android" version=">=4.0.0" />
+      <engine name="cordova-ios" version=">=3.8.0" />
+    </engines>
+
+
+    <!-- Make the javascript wrapper inject at loadtime as <script> -->
+    <!-- The clobbers tag makes the module.exports of the js module available at window.<target-value> -->
+    <js-module src="www/mobihelp_plugin.js" name="Mobihelp">
+        <clobbers target="Mobihelp" />
+    </js-module>
+
+
+
+    <!-- Stuff to do only on the android platform -->
+    <platform name="android">
+       
+        <!-- Move the Java wrapper class to specified location(which corresponds with the Class' package name) -->
+        <source-file src="src/android/MobihelpPlugin.java" target-dir="src/com/freshdesk/mobihelp/android" />       
+        
+
+        <!-- Pushing <feature> tag into android platform's config.xml -->
+        <!-- This is needed for Cordova to recognize the plugin and for using the Java Class globally -->
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MobihelpPlugin" >
+                <param name="android-package" value="com.freshdesk.mobihelp.android.MobihelpPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+      
+
+        <!-- Including the MobihelpSDK(which is included as such) as a framework -->
+        <!-- The custom parameter makes Cordova look for the SDK in a relative location rather than the Android SDK -->
+        <framework src="src/android/MobihelpSDK" custom="true" /> 
+
+    </platform>
+
+
+
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MobihelpPlugin">
+                <param name="ios-package" value="MobihelpPlugin" />
+                 <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+
+
+
+        <!-- PLUGIN HEADER AND SOURCE FILES -->
+        <header-file src="src/ios/MobihelpPlugin.h" target-dir="MobihelpiOSPlugin"/>
+        <source-file src="src/ios/MobihelpPlugin.m" target-dir="MobihelpiOSPlugin"/>
+
+
+        <!-- MOBIHELP SDK -->
+        
+        <!-- Headers -->
+        <header-file src="src/ios/MobihelpSDK/Mobihelp.h" target-dir="MobihelpiOSPlugin"/>
+        
+        <!-- Resources -->
+        <resource-file src="src/ios/MobihelpSDK/MHModel.bundle" target-dir="MobihelpiOSPlugin"/>
+        <resource-file src="src/ios/MobihelpSDK/MHResources.bundle" target-dir="MobihelpiOSPlugin"/>
+        <resource-file src="src/ios/MobihelpSDK/MHLocalization/en.lproj/MHLocalizable.strings" target-dir="MobihelpiOSPlugin/MHLocalization/en.lproj"/>
+
+        <!-- Frameworks -->
+        <framework src="AVFoundation.framework"/>
+        <framework src="CoreData.framework"/>
+        <framework src="CoreTelephony.framework"/>
+        <framework src="CoreGraphics.framework"/>
+        <framework src="Foundation.framework"/>
+        <framework src="MobileCoreServices.framework"/>
+        <framework src="QuartzCore.framework"/>
+        <framework src="Security.framework"/>
+        <framework src="SystemConfiguration.framework"/>
+        <framework src="UIKit.framework"/>
+        <source-file src="src/ios/MobihelpSDK/libFDMobihelpSDK.a" target-dir="MobihelpiOSPlugin" framework="true"/>
+            <!-- <framework src = "src/ios/MobihelpSDK/libFDMobihelpSDK.a" custom = "true" /> -->
+            <!-- This does not work -->
+
+
+    </platform>
+
+</plugin>
