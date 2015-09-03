@@ -56,7 +56,7 @@ public class MobihelpPlugin extends CordovaPlugin {
 
             JSONObject initArgs = new JSONObject(args.getString(0));
 
-            String domain = initArgs.getString("domain"); domain = "http://".concat(domain);
+            String domain = initArgs.getString("domain"); domain = "https://".concat(domain);
             String appKey = initArgs.getString("appKey");
             String appSecret = initArgs.getString("appSecret");
             MobihelpConfig mobihelpConfig = new MobihelpConfig(domain, appKey, appSecret);

@@ -49,7 +49,15 @@ document.addEventListener("deviceready", function(){
  Once initialized you can call mobihelp APIs using the window.Mobihelp object. 
  
  ```javascript 
- <a onclick="window.Mobihelp.showSupport()"> Support </a>
+//After initializing mobihelp 
+showSupport = function() { 
+    window.Mobihelp.showSupport();
+};
+document.getElementById("launch_support").onclick = showSupport;
+
+
+//in index.html
+<button id="launch_support"> LaunchSupport </button>
  ```
 
 ### Mobihelp APIs
