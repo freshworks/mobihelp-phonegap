@@ -20,6 +20,9 @@
 /* Search Results list */
 "Talk To Us Button Text" = "Talk to us";
 
+/*Tags Results List*/
+"Show All Solutions Button Text"="Show All Solutions";
+
 /* New Ticket */
 "Back Button Text"="Close";
 "Submit Button Text"="Submit";
@@ -59,11 +62,18 @@
 "Attachment success Alert Text"="Attachment sent";
 
 /* Closed Ticket Scenario */
-"conversation ended"="This conversation has ended";
-"Start a new conversation" = "Start a new conversation";
-"Did we help solve your issue" = "Did we help solve your issue ?";
-"NO" = "NO";
-"YES" = "YES";
+"Closed Prompt Label Text"="This conversation has ended";
+"Closed Prompt Button" = "Start a new conversation";
+
+/* Article UpVote DownVote */
+"Article Vote Prompt Label Text"="Was this helpful?";
+"Article Vote Prompt Yes"="YES";
+"Article Vote Prompt No"="NO";
+
+/* Resolved Ticket Scenario */
+"Resolved Prompt Label Text" = "Did we help solve your issue ?";
+"Resolved Prompt Yes"="YES";
+"Resolved Prompt No"="NO";
 
 /* Attachments View */
 "Attachment View Nav Bar Title Text"="Attachment";
@@ -74,11 +84,13 @@
 
 /* Solutions List */
 "Solutions Nav Bar Title Text"="Solutions";
+"Solutions Nav Bar Back Button Text"="Back";
 "No Solutions Text"="No Solutions Found";
 "Solutions Fetch Failed Text"="Fetching Solutions failed";
 
 /* Solution Detail */
 "Solutions Detail Nav Bar Title Text"="Solution Article";
+"Solutions Detail Nav Bar Back Button Text"="Back";
 "No Solutions Text"="No Article Found";
 "Solutions Fetch Failed Text"="Fetching Solution Article failed";
 
@@ -95,7 +107,7 @@
 /* Ratings Alert */
 "Rating Alert Title"="Rate our App";
 "Rating Alert Message"="Got a couple of minutes to rate us on the App Store?";
-"Yes"="Yes";
+"Rate Me"="Rate Me";
 "Not Now"="Not Now";
 "No"="No";
 "Send Feedback Button Text"="Send Feedback";

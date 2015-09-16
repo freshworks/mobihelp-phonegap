@@ -36,15 +36,16 @@ typedef NS_ENUM(NSInteger, FEEDBACK_TYPE) {
 @property (strong, nonatomic) NSString *domain;
 
 /**
- * Used to enable/disable SSL. SSL is ON by default.
- */
-@property (nonatomic) BOOL enableSSL;
-
-/**
  *  Used to specify whether solutions should be prefetched. This can be set to NO if solution articles are not being used. Default value is YES.
  */
 @property (nonatomic) BOOL prefetchSolutions;
 
+
+/**
+ *  Used to specify whether New Conversations option should be removed from the Solutions Page. This can be set to YES if new conversations need not be started from the solutions page. The default value is NO.
+ 
+ */
+//@property (nonatomic) BOOL disableConversations;
 
 /**
  *  Used to set the feedback type that specifies the amount of user information to be collected like name and email.
@@ -163,6 +164,20 @@ typedef NS_ENUM(NSInteger, FEEDBACK_TYPE) {
  *  @param parentViewController This is essentially the view controller from where you're attempting to present the feedback screen.
  *
  */
+
+/**
+ *  Present a set of filtered solutions to the user, using an array tags ( Contact Us is disabled )
+ *
+ *  @discussion This method lets you present a filtered set of solutions / FAQ.
+ *
+ *  @param parentViewController This is essentially the view controller from where you're attempting to present the solutions.
+ *
+ *  @param tagsArray This is an array of tags, which will be used to filter the
+ *   the solutions or FAQs.
+ */
+-(void)presentSolutions:(UIViewController *) parentViewController withTags:(NSArray *) tagsArray;
+
+
 -(void)presentFeedback:(UIViewController *) parentViewController;
 
 /**
