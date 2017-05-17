@@ -1,5 +1,7 @@
 # Mobihelp Plugin for Phonegap
 
+### Deprecation Notice : This product is deprecated and no longer supported. To discuss moving to our newer offerings, please reach out to us at support@freshdesk.com
+
 This plugin integrates Freshdesk's SDK (Mobihelp) into a Phonegap/Cordova project. 
 For platform specific details please refer to the [Developer Documentation](http://developer.freshdesk.com/mobihelp/)
 
